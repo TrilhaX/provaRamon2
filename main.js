@@ -36,9 +36,17 @@ function createNewDados(name) {
     dados.push(novosDados)
     writeFile(JSON.stringify(dados))
 }
-createNewDados("Joao")
 
-app.get()
+app.get('/logs', (req,res) => {
+    res.status(200).send(dados)
+    console.log("dados pegos:\n", dados)
+})
+
+app.post('/logs', (req, res) => {
+    dado = createNewDados("Joao")
+    res.status(201).send(dado)
+    console.log("Criado com sucesso")
+})
 
 app.listen(PORT, () => {
     console.log("Servidor online")
