@@ -1,7 +1,6 @@
 const fs = require('fs')
 const express = require('express')
 const { v4: uuidv4 } = require('uuid')
-const { get } = require('http')
 const dados = []
 const app = express()
 app.use(express.json());
