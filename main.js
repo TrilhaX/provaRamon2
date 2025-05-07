@@ -1,6 +1,9 @@
 const fs = require('fs')
+const express = require('express')
 const { v4: uuidv4 } = require('uuid')
 const dados = []
+const app = express()
+const PORT = 8000
 
 function writeFile(content) {
     try {
@@ -15,8 +18,7 @@ function writeFile(content) {
 
 function createNewDados(name) {
     let id = uuidv4()
-    let data = Date.now()
-    data = new Date(data)
+    const data = new Date().toISOString().replace("T", " ").slice(0, 19)
     const nome = name
     dados.push({
         ID: id,
@@ -27,3 +29,7 @@ function createNewDados(name) {
 }
 
 createNewDados("João")
+
+app.listen(PORT, () => {
+    console.log("Servidor online")
+})
