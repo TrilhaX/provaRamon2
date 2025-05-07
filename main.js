@@ -3,20 +3,21 @@ const fs = require('fs')
 const { v4: uuidv4 } = require('uuid')
 const dados = []
 
-function writeFile(content){
+function writeFile(content) {
     try {
-        fs.writeFileSync('logs.txt', content, {flag: 'a'})
-        fs.readFileSync('logs.txt', 'utf-8', (err,data) => {
+        fs.writeFileSync('logs.txt', content, { flag: 'a' })
+        fs.readFileSync('logs.txt', 'utf-8', (err, data) => {
             console.log(data)
         })
-    }catch{
+    } catch {
         console.error("Erro")
     }
 }
 
-function createNewDados(name){
+function createNewDados(name) {
     let id = uuidv4()
-    const data = Date.now();
+    let data = Date.now()
+    data = new Date(data)
     const nome = name
     dados.push({
         ID: id,
