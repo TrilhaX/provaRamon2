@@ -6,7 +6,6 @@ const dados = []
 const app = express()
 app.use(express.json());
 const PORT = 8000
-let dadoFinal
 
 function writeFile(linha, registro) {
     try {
